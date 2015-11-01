@@ -1,5 +1,4 @@
 #Clear OSX Browser Histories
-============================
 
 These shell scripts clear the private data (browsing histories) of Google Chrome, Apple Safari, and Opera Next on OSX. Unlike Firefox, these browsers do not offer the option to automatically clear all private data upon browser exit. 
 
