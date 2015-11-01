@@ -48,10 +48,12 @@ sh clear-chome-history.sh dry-run
 This is because each browser regenerates blank versions of the folders/files removed by the scripts on startup.
 2. **Backup your browser data BEFORE using these scripts**  
 Though I've been using these scripts for sometime without issue, I simply cannot test every unique combination of browser configuration settings and user installed extensions. *I highly recommend making backups of your browsers before using the scripts, instructions for which are included below.*
+3. **Ideally the scripts should be run automatically when quitting Chrome, Safari or Opera**  
+I use [Keyboard Maestro](https://www.keyboardmaestro.com/main/) to have these scripts automatically run anytime I quit Chrome, Safari, or Opera. However, if anyone is aware of a free / open-source app that can do the same thing, please submit an issue and let me know and I'll include that in the instructions here.
 
 -
 
-####**To make backups:**  
+#####**To make backups:**  
 Ensure Chrome, Safari and Opera are completely closed and not running, then use the following terminal commands to backup each browser's data in a "Browser_Backups" folder on your desktop:
 
 ```
@@ -60,7 +62,7 @@ cp -R ~/Library/Application\ Support/Google/Chrome ~/Desktop/Browser_Backups
 cp -R ~/Library/Safari ~/Desktop/Browser_Backups
 cp -R ~/Library/Application\ Support/com.operasoftware.OperaNext ~/Desktop/Browser_Backups
 ```
-####**To restore from backups:**  
+#####**To restore from backups:**  
 Ensure Chrome, Safari and Opera are completely closed and not running, then use the following terminal commands:
 
 ```
