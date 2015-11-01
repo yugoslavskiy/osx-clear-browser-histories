@@ -7,7 +7,7 @@ This has been tested with OSX El Capitan, but should work for Yosemite and Mount
 
 
 
-####**Removal includes:**
+#####**Removal includes:**
 
 * Browsing History
 * Saved Windows/Tabs from Last Browser Session
@@ -19,7 +19,7 @@ This has been tested with OSX El Capitan, but should work for Yosemite and Mount
 * Visited Links
 * Listing of Downloaded Files (but not the files themselves)
 
-####**The scripts do NOT remove:**
+#####**The scripts do NOT remove:**
 
 * Bookmarks
 * Browser Configuration Settings
@@ -28,16 +28,16 @@ This has been tested with OSX El Capitan, but should work for Yosemite and Mount
 
 ##USAGE
 
-First quit whichever browser (chrome/safari/opera) you want to clear the history of, then run the following terminal command:
+Ensure whichever browser (chrome/safari/opera) you want to clear the history of isn't currently running, then use the following terminal command:
 
 ```
-sh clear-chome-history.sh
+sh clear-chrome-history.sh
 ```
 
 To list which folders/files would be deleted, without actually deleting them:
 
 ```
-sh clear-chome-history.sh dry-run
+sh clear-chrome-history.sh dry-run
 ```
 
 
