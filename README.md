@@ -28,7 +28,7 @@ This has been tested with OSX El Capitan, but should work for Yosemite and Mount
 
 ##USAGE
 
-Open terminal and run this command:
+First quit whichever browser (chrome/safari/opera) you want to clear the history of, then run the following terminal command:
 
 ```
 sh clear-chome-history.sh
