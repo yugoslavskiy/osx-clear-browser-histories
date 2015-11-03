@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Change this to the specific user profile folder you want to clear the history of
-PROFILE_FOLDER=Profile\ 1
+PROFILE_FOLDER=Default
 
 # Pass argument "dry-run" to list which files will be deleted without actually deleting them
 if [ "$1" == "dry-run" ]
