@@ -18,13 +18,13 @@ fi
 
 function join { local IFS="$1"; shift; echo "$*"; }
 
-CHROME_FOLDER=~/Library/Application\ Support/Google/Chrome
-CACHE_FOLDER=~/Library/Caches/Google/Chrome
-CHROMEPATH=$CHROME_FOLDER/$PROFILE_FOLDER
+CHROMIUM_FOLDER=~/Library/Application\ Support/Chromium
+CACHE_FOLDER=~/Library/Caches/Chromium
+CHROMIUMPATH=$CHROMIUM_FOLDER/$PROFILE_FOLDER
 CACHEPATH=$CACHE_FOLDER/$PROFILE_FOLDER
 
-SHARED_CACHEPATH=$CHROME_FOLDER/$SHARED_CACHE_FOLDER
-CRASH_REPORTS_PATH=$CHROME_FOLDER/$CRASH_REPORTS_FOLDER
+SHARED_CACHEPATH=$CHROMIUM_FOLDER/$SHARED_CACHE_FOLDER
+CRASH_REPORTS_PATH=$CHROMIUM_FOLDER/$CRASH_REPORTS_FOLDER
 
 if [ $DEBUG = FALSE ]
 then
@@ -84,4 +84,4 @@ fi
 FOLDERREGEX=$(join "|" "${FOLDERS[@]}")
 FILESREGEX=$(join "|" "${FILES[@]}")
 
-find -E "$CHROMEPATH" -regex ".*/($FOLDERREGEX).*$" -type d -depth 1 $ACTION -o -regex ".*/($FILESREGEX).*$" -type f $ACTION
+find -E "$CHROMIUMPATH" -regex ".*/($FOLDERREGEX).*$" -type d -depth 1 $ACTION -o -regex ".*/($FILESREGEX).*$" -type f $ACTION
