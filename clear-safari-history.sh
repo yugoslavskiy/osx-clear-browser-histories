@@ -13,12 +13,15 @@ function join { local IFS="$1"; shift; echo "$*"; }
 
 SAFARIPATH=~/Library/Safari
 CACHEPATH=~/Library/Caches/com.apple.Safari
+HISTORY_PATH=~/Library/Caches/Metadata/Safari/History
 
 if [ $DEBUG = FALSE ]
 then
 	rm -Rf "$CACHEPATH"
+	rm -Rf "${HISTORY_PATH}"
 else
 	echo "$CACHEPATH"
+	echo "${HISTORY_PATH}"
 fi
 
 
