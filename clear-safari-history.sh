@@ -14,14 +14,17 @@ function join { local IFS="$1"; shift; echo "$*"; }
 SAFARIPATH=~/Library/Safari
 CACHEPATH=~/Library/Caches/com.apple.Safari
 HISTORY_PATH=~/Library/Caches/Metadata/Safari/History
+COOKIES_PATH=~/Library/Cookies/Cookies.binarycookies
 
 if [ $DEBUG = FALSE ]
 then
 	rm -Rf "$CACHEPATH"
 	rm -Rf "${HISTORY_PATH}"
+	rm -Rf "${COOKIES_PATH}"
 else
 	echo "$CACHEPATH"
 	echo "${HISTORY_PATH}"
+	echo "${COOKIES_PATH}"
 fi
 
 
