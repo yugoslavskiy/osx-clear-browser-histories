@@ -12,23 +12,36 @@ fi
 function join { local IFS="$1"; shift; echo "$*"; }
 
 SAFARIPATH=~/Library/Safari
+COOKIES_PATH=~/Library/Cookies
+
 CACHEPATH=~/Library/Caches/com.apple.Safari
 HISTORY_PATH=~/Library/Caches/Metadata/Safari/History
-COOKIES_PATH=~/Library/Cookies/Cookies.binarycookies
+
 
 if [ $DEBUG = FALSE ]
 then
 	rm -Rf "$CACHEPATH"
 	rm -Rf "${HISTORY_PATH}"
-	rm -Rf "${COOKIES_PATH}"
 else
 	echo "$CACHEPATH"
 	echo "${HISTORY_PATH}"
-	echo "${COOKIES_PATH}"
 fi
 
 
+# folders to delete
+FOLDERS=(
+	"Touch Icons"
+	"LocalStorage"
+)
+
 # files containing these strings will be deleted
+COOKIES_FILES=(
+	"Cookies.binarycookies"
+	"com.apple.Safari.SearchHelper.binarycookies"
+	"com.apple.Safari.SafeBrowsing.binarycookies"
+	"com.apple.safari.cookies"
+)
+
 FILES=(
 	"History" 
 	"Downloads" 
@@ -36,6 +49,8 @@ FILES=(
 	"TopSites" 
 	"LocalStorage/http" 
 	"WebpageIcons"
+	"StorageTracker"
+	"SearchDescriptions"
 )
 
 
@@ -46,6 +61,13 @@ else
 	ACTION="-print"
 fi
 
-FILESREGEX=$(join "|" "${FILES[@]}")
 
-find -E "$SAFARIPATH" -regex ".*/($FILESREGEX).*$" -type f $ACTION
+FOLDERREGEX=$(join "|" "${FOLDERS[@]}")
+FILESREGEX=$(join "|" "${FILES[@]}")
+COOKIESREGEX=$(join "|" "${COOKIES_FILES[@]}")
+
+
+find -E "$SAFARIPATH" -regex ".*/($FOLDERREGEX).*$" -type d -depth 1 $ACTION -o -regex ".*/($FILESREGEX).*$" -type f $ACTION
+find -E "$COOKIES_PATH" -regex ".*/($COOKIESREGEX).*$" -type f $ACTION
+
+
