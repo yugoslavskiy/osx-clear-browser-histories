@@ -34,6 +34,11 @@ FOLDERS=(
 	"LocalStorage"
 )
 
+FOLDERS_TO_DELETE=(
+	"RemoteNotifications"
+	"Databases"
+	)
+
 # files containing these strings will be deleted
 COOKIES_FILES=(
 	"Cookies.binarycookies"
@@ -51,6 +56,9 @@ FILES=(
 	"WebpageIcons"
 	"StorageTracker"
 	"SearchDescriptions"
+	"UserNotificationPermissions.plist"
+	"TopSites.plist"
+	"RecentlyClosedTabs.plist"
 )
 
 
@@ -68,6 +76,8 @@ COOKIESREGEX=$(join "|" "${COOKIES_FILES[@]}")
 
 
 find -E "$SAFARIPATH" -regex ".*/($FOLDERREGEX).*$" -type d -depth 1 $ACTION -o -regex ".*/($FILESREGEX).*$" -type f $ACTION
+find -E "$SAFARIPATH" ${FOLDERS_TO_DELETE} -type d $ACTION
 find -E "$COOKIES_PATH" -regex ".*/($COOKIESREGEX).*$" -type f $ACTION
+
 
 
