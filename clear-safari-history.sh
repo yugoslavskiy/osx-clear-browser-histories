@@ -37,7 +37,7 @@ FOLDERS=(
 FOLDERS_TO_DELETE=(
 	"RemoteNotifications"
 	"Databases"
-	)
+)
 
 # files containing these strings will be deleted
 COOKIES_FILES=(
@@ -73,11 +73,11 @@ fi
 FOLDERREGEX=$(join "|" "${FOLDERS[@]}")
 FILESREGEX=$(join "|" "${FILES[@]}")
 COOKIESREGEX=$(join "|" "${COOKIES_FILES[@]}")
+FOLDERS_TO_DELETEREGEX=$(join "|" "${FOLDERS_TO_DELETE[@]}")
 
 
 find -E "$SAFARIPATH" -regex ".*/($FOLDERREGEX).*$" -type d -depth 1 $ACTION -o -regex ".*/($FILESREGEX).*$" -type f $ACTION
-find -E "$SAFARIPATH" ${FOLDERS_TO_DELETE} -type d $ACTION
+find -E "$SAFARIPATH" -regex ".*/($FOLDERS_TO_DELETEREGEX).*$" -type d $ACTION
 find -E "$COOKIES_PATH" -regex ".*/($COOKIESREGEX).*$" -type f $ACTION
-
 
 
